@@ -1,0 +1,30 @@
+﻿@model List<Bug_Tracker.Models.Chore>
+@{
+    ViewBag.Title = "Chores";
+}
+
+<div class="jumbotron">
+    <h1>Your chores</h1>
+    <p class="lead">Yep.</p>
+</div>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Work Item Name</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Date Created</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.PriorityType</td>
+                <td>@item.DateCreated</td>
+            </tr>
+        }
+    </tbody>
+</table>
