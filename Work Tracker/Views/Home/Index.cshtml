@@ -1,0 +1,31 @@
+﻿@model List<Bug_Tracker.Models.WorkItem>
+@{
+    ViewBag.Title = "Bug Tracker!!!";
+}
+
+<div class="jumbotron">
+    <h1>Helps you track all of your work</h1>
+    <p class="lead">Yep.</p>
+    <p><a href="http://www.rememberthemilk.com" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Work Item Name</th>
+            <th>Type</th>
+            <th>Priority</th>
+            <th>Date Created</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.WorkItemType</td>
+                <td>@item.PriorityType</td>
+                <td>@item.DateCreated</td>
+            </tr>
+        }
+    </tbody>
+</table>
