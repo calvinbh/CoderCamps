@@ -1,0 +1,36 @@
+﻿@model List<Restaurant_Reviews.Models.Restaurant>
+
+@{
+    ViewBag.Title = "Yolp";
+}
+
+<div class="jumbotron">
+    <h1>Yolp</h1>
+    <p class="lead">Review restaurants.</p>
+    @Html.ActionLink("Add Restaurant", "AddRestaurant", null, new { @class = "btn btn-lg btn-success" })
+</div>
+
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Restaurant Name</th>
+            <th>Stars</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var restaurant in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(@restaurant.Name, "ViewRestaurant", new { id = restaurant.Id })</td>
+                <td>@restaurant.AverageStars (average out of @restaurant.ReviewCount reviews)</td>
+                <td>@restaurant.City , @restaurant.State</td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteRestaurant", new { id = restaurant.Id }, new { @class = "btn btn-sm btn-danger" })
+                    @Html.ActionLink("Edit", "EditRestaurant", new { id = restaurant.Id }, new { @class = "btn btn-sm btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,23 @@
+﻿@model Restaurant_Reviews.Models.Rating
+@{
+    ViewBag.Title = "AddReview";
+}
+
+<h2>Review @Model.RestaurantName</h2>
+<div class="form-inline">
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.LabelFor(x => x.Review)
+        @Html.TextBoxFor(x => x.Review, new { @class = "form-control" , placeholder="Your review"}) <br />
+        @Html.LabelFor(x=>x.Author)
+        @Html.TextBoxFor(x => x.Author, new { placeholder = "Your name" })
+         @Html.LabelFor(x => x.Stars)
+        @Html.RadioButtonFor(x => x.Stars, 1)
+        @Html.RadioButtonFor(x => x.Stars, 2)
+        @Html.RadioButtonFor(x => x.Stars, 3)
+        @Html.RadioButtonFor(x => x.Stars, 4)
+        @Html.RadioButtonFor(x => x.Stars, 5)
+        @Html.HiddenFor(x => x.RestaurantId)
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>
